@@ -22,12 +22,12 @@ app.set('views','./views');
 app.set('view engine','hbs');
 
 var indexController = require('./index.js');
-var managerController = require('./homepage.js');
+var AdminController = require('./AdminHomepage.js');
 
 app.use(express.static('public'));
 
 app.use('/', indexController);
 app.use('/index', indexController);
-app.use('/homepage',managerController);
+app.use('/AdminHomepage',AdminController);
 
 app.listen(process.env.PORT || 3000);

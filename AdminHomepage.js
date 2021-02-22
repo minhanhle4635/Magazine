@@ -29,16 +29,17 @@ router.get('/signup',(req,res)=>{
     }
 })
 
-router.post('/signup',async(req,res)=>{
-    let name = req.body.EmployeeName;
+router.post('/admin_signup',async(req,res)=>{
+    let name = req.body.Name;
     let username = req.body.username;
     let password = req.body.Password;
-    let newA = {EmployeeName : name, username : username, Password  : password};
+    let country = req.body.Country;
+    let newA = {AdminName : name, Username : username, Password  : password, Country : country};
     
     let client= await MongoClient.connect(url);
-    let dbo = client.db("ATNCompany");
-    dbo.collection("Account").insertOne(newA);
-    res.render('homepage');
+    let dbo = client.db("Magazine");
+    dbo.collection("Student").insertOne(newA);
+    res.render('index');
 })
 
 

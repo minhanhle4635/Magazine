@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>SignUp</title>
 </head>
 <body>
     <header>
     <div class="container">
-            <a href="/homepage"><img src="logo.png" alt="logo" class="logo"></a>
+            <a href="/homepage"><img src="/logo.png" alt="logo" class="logo"></a>
             <nav>
                 <ul>
                     <li><a href="/homepage">Home</a></li>
@@ -20,5 +21,15 @@
             </nav>
         </div>
     </header>
+    <div class="login-form">
+			<h1>SignUp Form</h1>
+			<form method="POST">
+                <input type="text" name="Name" placeholder="Name" required>
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="text" name="Password" placeholder="Password" required>
+                <input type="text" name="Country" placeholder="Country">
+				<input type="submit" value="SignUp">
+			</form>
+    </div>
 </body>
 </html>

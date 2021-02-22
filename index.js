@@ -9,19 +9,37 @@ router.get('/',(req,res)=>{
     res.render('index');
 })
 
-router.post('/homepage', async(req,res)=>{
+router.post('/signup',async(req,res)=>{
+    let name = req.body.Name;
+    let username = req.body.username;
+    let password = req.body.Password;
+    let country = req.body.Country
+    let newA = {StudentName : name, Username : username, Password  : password, Country : country};
+    
+    let client= await MongoClient.connect(url);
+    let dbo = client.db("Magazine");
+    dbo.collection("Student").insertOne(newA);
+    res.render('index');
+})
+
+router.post('/AdminHomepage', async(req,res)=>{
     var username = req.body.username;
     var password = req.body.password;
 
     let client = await MongoClient.connect(url);
     let dbo = client.db("Magazine");
-    let result = await dbo.collection("Student").find({"username": StudentAccount, "password": StudentPassword}).toArray();
-    if (result == 0){
+    let result1 = await dbo.collection("Student").find({"username": StudentAccount, "password": StudentPassword}).toArray();
+    let result2 = await dbo.collection("Admin").find({"username": AdminAccount, "password": AdminPassword}).toArray();
+    if (result1 == 0 && result2 == 0){
         res.redirect('/');
+    }
+    else if(result1 != 0 && result2 == 0){
+        req.session.username = username;
+        res.redirect('/StudentHomepage');
     }
     else{
         req.session.username = username;
-        res.redirect("/homepage");
+        res.redirect("/AdminHomepage");
     }
 })
 

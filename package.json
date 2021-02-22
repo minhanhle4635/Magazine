@@ -1,0 +1,24 @@
+{
+  "name": "coursework-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "consolidate": "^0.16.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "fs-extra": "^9.1.0",
+    "git": "^0.1.5",
+    "handlebars": "^4.7.7",
+    "mongodb": "^3.6.4",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
